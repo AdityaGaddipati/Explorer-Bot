@@ -1,0 +1,7 @@
+image: /home/aditya/catkin_ws/src/task_1/maps/task3_testing.png
+resolution: 0.017417143
+origin: [0.000000, 0.000000, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

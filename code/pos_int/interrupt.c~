@@ -1,0 +1,14 @@
+void encoder_pin_config(){
+	DDRE  = DDRE & 0xCF;	//Set the direction of PE4 & PE5 pin as input
+	PORTE = PORTE | 0x30;	//Enable internal pull-up for PE4 & PE5 pin
+	DDRD = DDRD & 0xF3;	//Set the direction of PD2 & PD3 pin as input
+	PORTD = PORTD | 0x0C;	//Enable internal pull-up for PD2 & PD3 pin
+}
+
+void encoder_interrupt_init(){
+	cli();			//Clears the global interrupt
+	EICRA = EICRA | 0x0C; 	// INT2(left enc) is set to trigger with rising edge
+	EICRB = EICRB | 0x03; 	// INT4(right enc) is set to trigger with rising edge
+	EIMSK = EIMSK | 0x14; 	// Enable Interrupt INT2 & INT4
+	sei();   		// Enables the global interrupt
+}
